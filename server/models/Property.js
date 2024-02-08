@@ -42,7 +42,7 @@ const PropertySchema = new mongoose.Schema({
         required: true,
         min: 2
     },
-    features: {
+    featured: {
         type: Boolean,
         required: true,
         default: false
