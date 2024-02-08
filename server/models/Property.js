@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PropertySchema = mongoose.Schema({
+const PropertySchema = new mongoose.Schema({
     currentOwner: {
         type: mongoose.Types.ObjectId,
         ref: 'User',

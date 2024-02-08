@@ -24,7 +24,7 @@ const register = async (req,res) => {
     try {
 
         const newUser = await UserModel.create({username, email, password: hashedPassword});
-        const {password, ...others} = newUser._doc;
+        const {...userRegistered} = newUser.toObject({getters: true});
         const token = jwt.sign({id: newUser._id},process.env.ACCESS_TOKEN_SECRET,{expiresIn: '4h'});
 
         return res.status(201).json({others,token});
