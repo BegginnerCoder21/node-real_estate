@@ -18,7 +18,7 @@ const register = async (req,res) => {
     if(emailExist){
         return res.status(409).json({'ErrorEmpty' : 'Email entré existe déjà, veillez entrer un autre mail SVP'});
     }
-    console.log('password',password);
+    
     const hashedPassword = await bcrypt.hash(password,10);
 
     try {
