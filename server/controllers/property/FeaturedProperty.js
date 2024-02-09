@@ -4,7 +4,7 @@ const featuredProperty = async(req, res) => {
     try {
 
         const featuredProperties = await PropertyModel
-                                                    .findOne({featured : true})
+                                                    .find({featured : true})
                                                     .populate('currentOwner','-password');
 
         return res.status(200).json(featuredProperties);
