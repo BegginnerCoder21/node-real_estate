@@ -8,6 +8,7 @@ const numberTypeProperty = require('../controllers/property/numberTypeProperty')
 const getProperty = require('../controllers/property/getProperty');
 const createNewProperty = require('../controllers/property/createNewProperty');
 const verifyToken = require('../middlewares/verifyToken');
+const updateProperty = require('../controllers/property/updateProperty');
 const router = express.Router()
 
 router.route('/register').post(register);
@@ -24,6 +25,10 @@ router.route('/find/number-type').get(numberTypeProperty);
 
 router.route('/find-property/:id').get(getProperty);
 
-router.route('/property').post(verifyToken, createNewProperty);
+router.route('/create-property').post(verifyToken, createNewProperty);
+
+router.route('/update-property').put(verifyToken, updateProperty);
+
+
 
 module.exports = router;
