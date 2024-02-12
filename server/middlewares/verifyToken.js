@@ -6,12 +6,12 @@ const verifyToken = async(req, res, next) => {
 
     if(bearerToken?.startsWith('Bearer')){
 
-        const token = bearerToken.split('')[1];
-
+        const token = bearerToken.split(' ')[1];
+        
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async(error, data) => {
 
             if(error){
-               return res.status(403).json({"Erreur" : "Error token non authorisé."});
+               return res.status(403).json(error);
             }   
             
             req.user = data;

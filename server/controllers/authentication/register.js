@@ -27,7 +27,7 @@ const register = async (req,res) => {
         const {...userRegistered} = newUser.toObject({getters: true});
         const token = jwt.sign({id: newUser._id},process.env.ACCESS_TOKEN_SECRET,{expiresIn: '4h'});
 
-        return res.status(201).json({others,token});
+        return res.status(201).json({userRegistered,token});
 
         
     } catch (error) {

@@ -3,7 +3,7 @@ const PropertyModel = require('../../models/Property');
 const getProperty = async(req, res) => {
     try {
         const property = await PropertyModel
-                                            .find(req.params.id)
+                                            .findById(req.params.id)
                                             .populate("currentOwner","-password");
 
         if(!property){

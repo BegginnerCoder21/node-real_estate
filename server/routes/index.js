@@ -10,6 +10,8 @@ const createNewProperty = require('../controllers/property/createNewProperty');
 const verifyToken = require('../middlewares/verifyToken');
 const updateProperty = require('../controllers/property/updateProperty');
 const destroyProperty = require('../controllers/property/destroyProperty');
+const upload = require('../config/multer');
+const uploadImages = require('../controllers/upload/upload');
 const router = express.Router()
 
 router.route('/register').post(register);
@@ -28,8 +30,10 @@ router.route('/find-property/:id').get(getProperty);
 
 router.route('/create-property').post(verifyToken, createNewProperty);
 
-router.route('/update-property').put(verifyToken, updateProperty);
+router.route('/update-property/:id').put(verifyToken, updateProperty);
 
-router.route('/destroy-property').delete(verifyToken, destroyProperty);
+router.route('/destroy-property/:id').delete(verifyToken, destroyProperty);
+
+router.route('/upload/image').post(upload.single('image'), uploadImages)
 
 module.exports = router;

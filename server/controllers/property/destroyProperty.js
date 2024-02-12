@@ -5,12 +5,12 @@ const destroyProperty = async(req, res) => {
 
         const property = await PropertyModel.findById(req.params.id);
 
-        if(property.currentOwner !== req.user.id) {
+        if(property.currentOwner.toString() !== req.user.id) {
 
             return res.status(403).json({"Unauthorized" : "Accès non authorisé à la suppression."});
         }
 
-        await property.delete();
+        await property.deleteOne();
 
         return res.status(200).json({"Success" : "Propriété supprimé avec succès."})
         

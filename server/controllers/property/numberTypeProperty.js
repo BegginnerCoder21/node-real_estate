@@ -10,7 +10,7 @@ const numberTypeProperty = async(req, res) => {
         return res.status(200).json({
             beach : beachType,
             village: VillageType,
-            montainType: montainType
+            montain: montainType
         });
 
     } catch (error) {

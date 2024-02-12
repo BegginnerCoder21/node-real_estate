@@ -30,7 +30,7 @@ const PropertySchema = new mongoose.Schema({
         required: true
     },
     squareMeters: {
-        type : String,
+        type : Number,
         required: true
     },
     continent:  {

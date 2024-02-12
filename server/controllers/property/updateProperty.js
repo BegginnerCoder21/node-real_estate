@@ -7,8 +7,8 @@ const updateProperty = async(req, res) => {
                 return res.status(404).json({"Error" : "propriété non trouvé."});
             }
             const property = await PropertyModel.findById(req.params.id);
-
-            if(property.currentOwner !== req.user.id){
+     
+            if(property.currentOwner.toString() !== req.user.id){
 
                 return res.status(403).json({"Unauthorized" : "Accès non authorisé à la modification."});
             }

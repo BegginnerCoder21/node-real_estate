@@ -2,7 +2,8 @@ const PropertyModel = require("../../models/Property");
 
 const specificProperty = async(req, res) => {
         const typeProperty = req.query;
-
+        console.log(typeProperty);
+        
     try {
         if(typeProperty){
             const properties = await PropertyModel
